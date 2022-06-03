@@ -42,7 +42,7 @@ const Hero = () => {
 					alignItems: 'center',
 					mb: 15,
 				}}>
-				<video controls={true} autoPlay={true} loop={true} muted width={'100%'}>
+				<video controls={true} autoPlay={true} loop={true} muted width={'100%'} playsInline>
 					<source src={'/assets/running.mp4'} />
 				</video>
 			</Box>
