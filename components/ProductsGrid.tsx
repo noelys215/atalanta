@@ -101,7 +101,8 @@ const ProductsGrid = (): ReactElement<ProductProps> => {
 
 						{womensShoes?.slice(3, 7).map((p: any) => (
 							<Grid item md={3} sm={4} xs={6} key={p?._id}>
-								<Link href={`/mens/footwear/${p?.slug?.current}?type=womensShoes`}>
+								<Link
+									href={`/womens/footwear/${p?.slug?.current}?type=womensShoes`}>
 									<a>
 										<Image
 											src={urlForThumbnail(p?.image[0])}
