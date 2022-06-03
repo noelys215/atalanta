@@ -1,15 +1,9 @@
-// @ts-nocheck
 import { Box, CircularProgress, Container, Grid, Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReactElement, useEffect, useState } from 'react';
 import client from '../utils/client';
 import { urlForThumbnail } from '../utils/image';
-// Framer
-import { motion, AnimatePresence, useAnimation } from 'framer-motion';
-import { boxAnimation } from '../utils/BoxMotion';
-import { useInView } from 'react-intersection-observer';
-
 interface ProductProps {
 	mensShoes?: string[];
 	womensShoes?: string[];
@@ -19,16 +13,6 @@ interface ProductProps {
 }
 
 const ProductsGrid = (): ReactElement<ProductProps> => {
-	const { ref, inView } = useInView({ threshold: 0.5 });
-	const controls = useAnimation();
-
-	useEffect(() => {
-		if (inView) {
-			controls.start('visible');
-		}
-	}, [controls, inView]);
-
-	//
 	const [state, setState] = useState<ProductProps>({
 		mensShoes: [],
 		error: '',
@@ -96,61 +80,43 @@ const ProductsGrid = (): ReactElement<ProductProps> => {
 							justifyContent: 'center',
 							alignItems: 'center',
 						}}>
-						<AnimatePresence>
-							{mensShoes?.slice(0, 4).map((p: any, i) => (
-								<Grid item md={3} sm={4} xs={6} key={p?._id}>
-									<motion.div
-										ref={ref}
-										initial="hidden"
-										animate={controls}
-										variants={boxAnimation}
-										transition={{ delay: i * 0.2 }}>
-										<Link
-											href={`/mens/footwear/${p?.slug?.current}?type=mensShoes`}>
-											<a>
-												<Image
-													src={urlForThumbnail(p?.image[0])}
-													width={450}
-													height={450}
-													alt={p?.name}
-												/>
-											</a>
-										</Link>
-										<Box p={1}>
-											<Typography>{p?.name}</Typography>
-											<Typography>{`$${p?.price.toFixed(2)}`}</Typography>
-										</Box>
-									</motion.div>
-								</Grid>
-							))}
+						{mensShoes?.slice(0, 4).map((p: any) => (
+							<Grid item md={3} sm={4} xs={6} key={p?._id}>
+								<Link href={`/mens/footwear/${p?.slug?.current}?type=mensShoes`}>
+									<a>
+										<Image
+											src={urlForThumbnail(p?.image[0])}
+											width={450}
+											height={450}
+											alt={p?.name}
+										/>
+									</a>
+								</Link>
+								<Box p={1}>
+									<Typography>{p?.name}</Typography>
+									<Typography>{`$${p?.price.toFixed(2)}`}</Typography>
+								</Box>
+							</Grid>
+						))}
 
-							{womensShoes?.slice(3, 7).map((p: any, i) => (
-								<Grid item md={3} sm={4} xs={6} key={p?._id}>
-									<motion.div
-										ref={ref}
-										initial="hidden"
-										animate={controls}
-										variants={boxAnimation}
-										transition={{ delay: i * 0.2 }}>
-										<Link
-											href={`/mens/footwear/${p?.slug?.current}?type=womensShoes`}>
-											<a>
-												<Image
-													src={urlForThumbnail(p?.image[0])}
-													width={450}
-													height={450}
-													alt={p?.name}
-												/>
-											</a>
-										</Link>
-										<Box p={1}>
-											<Typography>{p?.name}</Typography>
-											<Typography>{`$${p?.price.toFixed(2)}`}</Typography>
-										</Box>
-									</motion.div>
-								</Grid>
-							))}
-						</AnimatePresence>
+						{womensShoes?.slice(3, 7).map((p: any) => (
+							<Grid item md={3} sm={4} xs={6} key={p?._id}>
+								<Link href={`/mens/footwear/${p?.slug?.current}?type=womensShoes`}>
+									<a>
+										<Image
+											src={urlForThumbnail(p?.image[0])}
+											width={450}
+											height={450}
+											alt={p?.name}
+										/>
+									</a>
+								</Link>
+								<Box p={1}>
+									<Typography>{p?.name}</Typography>
+									<Typography>{`$${p?.price.toFixed(2)}`}</Typography>
+								</Box>
+							</Grid>
+						))}
 					</Grid>
 				</Box>
 			)}

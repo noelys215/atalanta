@@ -30,8 +30,12 @@ const Home: NextPage = () => {
 			</motion.div>
 
 			{/* Shoe Display */}
-			<ProductsGrid />
-
+			<motion.div
+				whileInView={{ opacity: 1 }}
+				initial={{ opacity: 0 }}
+				transition={{ duration: 0.5, ease: 'easeInOut' }}>
+				<ProductsGrid />
+			</motion.div>
 			{/* Summer Collection */}
 			<motion.div
 				whileInView={{ opacity: 1 }}
