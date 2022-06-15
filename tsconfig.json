@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"target": "ES2021",
+		"target": "ES6",
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
 		"skipLibCheck": true,
@@ -21,7 +21,8 @@
 		"**/*.ts",
 		"**/*.tsx",
 		"sanity/schemas/product.js",
-		"sanity/schemas/schema.js"
+		"sanity/schemas/schema.js",
+		"components/ProductScreen.tsx"
 	],
 	"exclude": ["node_modules"]
 }
