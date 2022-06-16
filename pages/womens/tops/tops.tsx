@@ -14,9 +14,6 @@ interface ProductProps {
 	sort?: any;
 }
 
-<<<<<<< HEAD
-const WomensTops: React.FC<ProductProps> = ({ tanks, shirts, jackets }: ProductProps) => {
-=======
 const tops: React.FC<ProductProps> = () => {
 	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const [state, setState] = useState<ProductProps>({
@@ -88,7 +85,6 @@ const tops: React.FC<ProductProps> = () => {
 		fetchData();
 	}, [error, sort]);
 
->>>>>>> parent of 050b63e (refactored slug & started implimenting ISR)
 	return (
 		<>
 			{loading ? (
