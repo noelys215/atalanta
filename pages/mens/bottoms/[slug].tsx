@@ -41,6 +41,8 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 export default function ProductScreen(props: React.FC<ProductProps>) {
 	const { slug }: any = props;
 	const { path }: any = props;
+	console.log(path);
+	console.log(slug);
 
 	const {
 		state: { cart },

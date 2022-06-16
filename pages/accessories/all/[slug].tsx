@@ -1,23 +1,29 @@
 import ProductScreen from '../../../components/ProductScreen';
+import client from '../../../utils/client';
 
-const SingleProduct = (props: any) => {
-	const { slug }: any = props;
-	const { path }: any = props;
+export default function SingleProduct({ product }: any) {
+	return <ProductScreen product={product} />;
+}
 
-	return (
-		<>
-			<ProductScreen slug={slug} path={path} />
-		</>
-	);
-};
+export async function getStaticProps(context: any) {
+	const slug = context.params.slug;
 
-export default SingleProduct;
+	const product = await client.fetch(`*[_type == "accessories" && slug.current == $slug][0]`, {
+		slug,
+	});
 
-export function getServerSideProps(context: any) {
 	return {
 		props: {
-			slug: context.params.slug,
-			path: context.query.type,
+			product,
 		},
+		revalidate: 10,
 	};
+}
+
+export async function getStaticPaths() {
+	const res = await client.fetch(`*[_type == "accessories"]`);
+	const paths = res.map((post: any) => ({
+		params: { slug: post.slug.current },
+	}));
+	return { paths, fallback: true };
 }
