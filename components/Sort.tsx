@@ -21,7 +21,7 @@ const Sort: React.FC<ProductProps> = ({ handleSort }) => {
 					</MenuItem>
 					<MenuItem value={'Highest'}>Highest</MenuItem>
 					<MenuItem value={'Lowest'}>Lowest</MenuItem>
-					<MenuItem value={'Trending'}>Trending</MenuItem>
+					{/* <MenuItem value={'Trending'}>Trending</MenuItem> */}
 				</Select>
 			</FormControl>
 		</Box>
