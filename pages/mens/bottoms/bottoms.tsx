@@ -11,7 +11,7 @@ interface ProductProps {
 	sort?: any;
 }
 
-const mensBottoms: React.FC<ProductProps> = ({ pants, shorts }) => {
+const MensBottoms: React.FC<ProductProps> = ({ pants, shorts }) => {
 	return (
 		<>
 			(
@@ -44,7 +44,7 @@ const mensBottoms: React.FC<ProductProps> = ({ pants, shorts }) => {
 	);
 };
 
-export default mensBottoms;
+export default MensBottoms;
 
 export async function getStaticProps() {
 	const shorts = await client.fetch(`*[_type == "mensShorts"]`);

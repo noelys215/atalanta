@@ -23,7 +23,6 @@ interface ProductCatProps {
 }
 
 const ProductsCat: React.FC<ProductCatProps> = ({ products, title, type, cat, department }) => {
-	console.log(products);
 	const [state, setState] = useState<ProductCatProps>({
 		sort: '',
 	});

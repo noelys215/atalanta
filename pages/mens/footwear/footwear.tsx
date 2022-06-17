@@ -11,7 +11,7 @@ interface ProductProps {
 	cat?: string;
 }
 
-const mensShoes: React.FC<ProductProps> = ({ footwear }) => {
+const MensShoes: React.FC<ProductProps> = ({ footwear }) => {
 	return (
 		<Box mb={'auto'}>
 			<Container maxWidth="xl">
@@ -37,7 +37,7 @@ const mensShoes: React.FC<ProductProps> = ({ footwear }) => {
 	);
 };
 
-export default mensShoes;
+export default MensShoes;
 
 export async function getStaticProps() {
 	const footwear = await client.fetch(`*[_type == "mensShoes"]`);

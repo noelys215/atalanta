@@ -13,7 +13,7 @@ interface ProductProps {
 	sort?: any;
 }
 
-const mensTops: React.FC<ProductProps> = ({ tanks, shirts, jackets }) => {
+const MensTops: React.FC<ProductProps> = ({ tanks, shirts, jackets }) => {
 	return (
 		<>
 			<Container maxWidth="xl">
@@ -54,7 +54,7 @@ const mensTops: React.FC<ProductProps> = ({ tanks, shirts, jackets }) => {
 	);
 };
 
-export default mensTops;
+export default MensTops;
 
 export async function getStaticProps() {
 	const tanks = await client.fetch(`*[_type == "mensTanks"]`);
