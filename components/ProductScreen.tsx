@@ -26,6 +26,7 @@ import { Store } from '../utils/store';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import toast from 'react-hot-toast';
+import Head from 'next/head';
 
 interface ProductProps {
 	products?: string[];
@@ -97,6 +98,9 @@ const ProductScreen = ({ product }: any): React.ReactElement<ProductProps> => {
 	const router = useRouter();
 	return (
 		<>
+			<Head>
+				<title>{product?.name}</title>
+			</Head>
 			(
 			<Container maxWidth="xl" sx={{ display: 'flex', flexDirection: 'column' }}>
 				<Grid
