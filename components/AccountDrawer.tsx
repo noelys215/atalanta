@@ -39,6 +39,7 @@ interface AccountProps {
 
 const AccountDrawer = () => {
 	const router = useRouter();
+	console.log(router);
 	const [openDrawer, setOpenDrawer] = useState(false);
 
 	const [values, setValues] = React.useState({
@@ -50,12 +51,6 @@ const AccountDrawer = () => {
 	});
 	const { state, dispatch } = useContext(Store);
 	const { userInfo } = state;
-
-	// useEffect(() => {
-	// 	if (userInfo) {
-	// 		router.push('/');
-	// 	}
-	// }, [userInfo]);
 
 	const {
 		handleSubmit,

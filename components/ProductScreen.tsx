@@ -8,6 +8,7 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import dynamic from 'next/dynamic';
 
 import {
 	Accordion,
@@ -24,6 +25,7 @@ import { urlFor, urlForThumbnail } from '../utils/image';
 import { Store } from '../utils/store';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import toast from 'react-hot-toast';
 
 interface ProductProps {
 	products?: string[];
@@ -88,7 +90,7 @@ const ProductScreen = ({ product }: any): React.ReactElement<ProductProps> => {
 				selectedSize: selectedSize,
 			},
 		});
-		<Alert severity="success">Added to Cart</Alert>;
+		toast('Added to Cart');
 		router.push('/cart');
 	};
 
@@ -261,4 +263,4 @@ const ProductScreen = ({ product }: any): React.ReactElement<ProductProps> => {
 	);
 };
 
-export default ProductScreen;
+export default dynamic(() => Promise.resolve(ProductScreen), { ssr: false });
