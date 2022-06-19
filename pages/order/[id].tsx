@@ -9,6 +9,7 @@ import toast from 'react-hot-toast';
 import { getError } from '../../utils/error';
 import { Store } from '../../utils/store';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
+import Layout from '../../components/Layout';
 
 function reducer(state: any, action: any) {
 	switch (action.type) {
@@ -131,8 +132,8 @@ const OrderHistoryScreen = ({ params }: any) => {
 	}
 
 	return (
-		<>
-			<Box mb={'auto'} display={'flex'}>
+		<Layout title={'Order'}>
+			<Box display={'flex'}>
 				{loading ? (
 					<CircularProgress color="primary" variant="determinate" />
 				) : error ? (
@@ -331,7 +332,7 @@ const OrderHistoryScreen = ({ params }: any) => {
 					</>
 				)}
 			</Box>
-		</>
+		</Layout>
 	);
 };
 

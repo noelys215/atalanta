@@ -15,7 +15,7 @@ interface ProductProps {
 const MensBottoms: React.FC<ProductProps> = ({ pants, shorts }) => {
 	return (
 		<>
-			<Layout title={'Mens Bottoms'}>
+			<Layout title={`Men's Bottoms`}>
 				<Box display={'flex'} justifyContent={'space-between'}>
 					<Typography variant="h5" mb={1}>
 						Mens

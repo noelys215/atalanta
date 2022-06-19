@@ -1,9 +1,10 @@
-import { Box, Button, Container, Divider, Typography } from '@mui/material';
+import { Box, Button, Divider, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 import React from 'react';
 import ProductsCat from '../../../components/ProductsCat';
 import client from '../../../utils/client';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import Layout from '../../../components/Layout';
 
 interface ProductProps {
 	footwear?: string[];
@@ -19,8 +20,7 @@ const WomensShoes: React.FC<ProductProps> = ({ footwear }) => {
 
 	return (
 		<>
-			(
-			<Container maxWidth="xl">
+			<Layout title={`Women's Footwear`}>
 				{/* Title */}
 
 				<Box display={'flex'} justifyContent={'space-between'}>
@@ -28,7 +28,7 @@ const WomensShoes: React.FC<ProductProps> = ({ footwear }) => {
 						<Button onClick={() => router.back()}>
 							<ArrowBackIcon sx={{ p: 0 }} />
 						</Button>
-						<Typography variant="h5">Womens</Typography>
+						<Typography variant="h5">{`Women's`}</Typography>
 					</Box>
 				</Box>
 
@@ -42,8 +42,7 @@ const WomensShoes: React.FC<ProductProps> = ({ footwear }) => {
 					type={'womensShoes'}
 					cat={'footwear'}
 				/>
-			</Container>
-			)
+			</Layout>
 		</>
 	);
 };

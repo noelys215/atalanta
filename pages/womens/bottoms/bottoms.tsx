@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box, Container, Divider, Typography } from '@mui/material';
+import { Box, Divider, Typography } from '@mui/material';
 import ProductsCat from '../../../components/ProductsCat';
 import client from '../../../utils/client';
+import Layout from '../../../components/Layout';
 interface ProductProps {
 	pants?: string[];
 	shorts?: string[];
@@ -14,19 +15,15 @@ interface ProductProps {
 const WomensBottoms: React.FC<ProductProps> = ({ pants, shorts }) => {
 	return (
 		<>
-			(
-			<Container maxWidth="xl" sx={{ mb: 'auto' }}>
-				{/* Title */}
-
+			<Layout title={`Women's Bottoms`}>
 				<Box display={'flex'} justifyContent={'space-between'}>
 					<Typography variant="h5" mb={1}>
-						Womens
+						{`Women's`}
 					</Typography>
 				</Box>
 
 				<Divider />
 
-				{/* Test */}
 				<ProductsCat
 					department="womens"
 					title="Shorts"
@@ -41,8 +38,7 @@ const WomensBottoms: React.FC<ProductProps> = ({ pants, shorts }) => {
 					type={'womensPants'}
 					cat={'bottoms'}
 				/>
-			</Container>
-			)
+			</Layout>
 		</>
 	);
 };

@@ -1,5 +1,6 @@
-import { Box, Container, Divider, Typography } from '@mui/material';
+import { Box, Divider, Typography } from '@mui/material';
 import React from 'react';
+import Layout from '../../../components/Layout';
 import ProductsCat from '../../../components/ProductsCat';
 import client from '../../../utils/client';
 
@@ -16,19 +17,15 @@ interface ProductProps {
 const WomensTops: React.FC<ProductProps> = ({ tanks, shirts, jackets }) => {
 	return (
 		<>
-			(
-			<Container maxWidth="xl">
-				{/* Title */}
-
+			<Layout title={`Women's Tops`}>
 				<Box display={'flex'} justifyContent={'space-between'}>
 					<Typography variant="h5" mb={1}>
-						Womens
+						{`Women's`}
 					</Typography>
 				</Box>
 
 				<Divider />
 
-				{/* Test */}
 				<ProductsCat
 					title="Tanks"
 					products={tanks}
@@ -50,8 +47,7 @@ const WomensTops: React.FC<ProductProps> = ({ tanks, shirts, jackets }) => {
 					type={'womensJackets'}
 					cat={'tops'}
 				/>
-			</Container>
-			)
+			</Layout>
 		</>
 	);
 };

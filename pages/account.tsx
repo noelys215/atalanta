@@ -123,7 +123,7 @@ function AccountScreen() {
 				flexDirection: 'column',
 			}}>
 			<Head>
-				<title>Account - Atalanta A.C.</title>
+				<title>{userInfo.lastName} - Atalanta A.C.</title>
 			</Head>
 			<Grid item md={12} sm={12} xs={12} sx={{ width: { md: '70%', sm: '90%' } }} m={'auto'}>
 				<form onSubmit={handleSubmit(submitHandler)}>
