@@ -18,7 +18,6 @@ import {
 	Divider,
 	List,
 	Grid,
-	Alert,
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { urlFor, urlForThumbnail } from '../utils/image';
@@ -74,7 +73,7 @@ const ProductScreen = ({ product }: any): React.ReactElement<ProductProps> => {
 		const path = router.asPath;
 		const { data } = await axios.get(`/api/products/${product._id}`);
 		if (data.countInStock < quantity) {
-			<Alert severity="error">Sorry, out of stock.</Alert>;
+			toast('Sorry, out of stock.');
 			return;
 		}
 		dispatch({
@@ -92,7 +91,7 @@ const ProductScreen = ({ product }: any): React.ReactElement<ProductProps> => {
 			},
 		});
 		toast('Added to Cart');
-		router.push('/cart');
+		// router.push('/cart');
 	};
 
 	const router = useRouter();
