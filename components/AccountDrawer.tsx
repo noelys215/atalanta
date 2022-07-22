@@ -39,7 +39,7 @@ interface AccountProps {
 
 const AccountDrawer = () => {
 	const router = useRouter();
-	console.log(router);
+	// console.log(router);
 	const [openDrawer, setOpenDrawer] = useState(false);
 
 	const [values, setValues] = React.useState({

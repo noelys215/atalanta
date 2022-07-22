@@ -14,7 +14,7 @@ export async function getStaticProps(context: any) {
 			slug,
 		}
 	);
-	console.log(product);
+	// console.log(product);
 	return {
 		props: {
 			product,

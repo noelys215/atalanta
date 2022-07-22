@@ -59,6 +59,7 @@ const CartScreen = () => {
 			cart: { cartItems },
 		},
 		dispatch,
+		userInfo,
 	} = React.useContext(Store);
 
 	return (
@@ -191,12 +192,21 @@ const CartScreen = () => {
 										</Typography>
 									</ListItem>
 									<ListItem>
-										<Button
-											fullWidth
-											variant="contained"
-											onClick={() => router.push('/shipping')}>
-											Checkout
-										</Button>
+										{userInfo ? (
+											<Button
+												fullWidth
+												variant="contained"
+												onClick={() => router.push('/shipping')}>
+												Checkout
+											</Button>
+										) : (
+											<Button
+												fullWidth
+												variant="contained"
+												onClick={() => router.push('/register')}>
+												Register to Checkout
+											</Button>
+										)}
 									</ListItem>
 								</List>
 							</Card>
