@@ -99,7 +99,7 @@ const ProductScreen = ({ product }: any): React.ReactElement<ProductProps> => {
 			<Head>
 				<title>{product?.name}</title>
 			</Head>
-			(
+
 			<Container maxWidth="xl" sx={{ display: 'flex', flexDirection: 'column' }}>
 				<Grid
 					width={'100%'}
@@ -260,7 +260,6 @@ const ProductScreen = ({ product }: any): React.ReactElement<ProductProps> => {
 					</Grid>
 				</Grid>
 			</Container>
-			)
 		</>
 	);
 };
