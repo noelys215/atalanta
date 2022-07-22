@@ -12,7 +12,7 @@ import {
 	Divider,
 } from '@mui/material';
 import axios from 'axios';
-// import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -246,5 +246,5 @@ const CartScreen = () => {
 	);
 };
 
-export default CartScreen;
-// export default dynamic(() => Promise.resolve(CartScreen), { ssr: false });
+// export default CartScreen;
+export default dynamic(() => Promise.resolve(CartScreen), { ssr: false });

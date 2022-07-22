@@ -48,8 +48,8 @@ const ProductScreen = ({ product }: any): React.ReactElement<ProductProps> => {
 		size: '',
 	});
 
+	const router = useRouter();
 	const [selectedSize, setSelectedSize] = React.useState(null);
-
 	const theme = useTheme();
 	const [activeStep, setActiveStep] = React.useState(0);
 	const maxSteps = product?.image.length;
@@ -91,10 +91,9 @@ const ProductScreen = ({ product }: any): React.ReactElement<ProductProps> => {
 			},
 		});
 		toast('Added to Cart');
-		// router.push('/cart');
+		router.push('/cart');
 	};
 
-	const router = useRouter();
 	return (
 		<>
 			<Head>
@@ -266,4 +265,4 @@ const ProductScreen = ({ product }: any): React.ReactElement<ProductProps> => {
 	);
 };
 
-export default dynamic(() => Promise.resolve(ProductScreen), { ssr: false });
+export default dynamic(() => Promise.resolve(ProductScreen), { ssr: true });
